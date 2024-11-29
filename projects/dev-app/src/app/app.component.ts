@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NestedNavListComponent } from '../../../nested-nav-list/src/public-api';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
-import { NavData } from '../../../nested-nav-list/src/lib/nav-data';
+import {
+  NavData,
+  NestedNavListComponent,
+} from '../../../nested-nav-list/src/public-api';
 
 @Component({
   selector: 'app-root',
