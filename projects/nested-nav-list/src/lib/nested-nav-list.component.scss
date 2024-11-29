@@ -1,0 +1,22 @@
+.nested-nav-list {
+  .expand-trigger[matlistitemmeta] {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  &.override-svg-icon-color {
+    [matlistitemicon] {
+      svg {
+        [fill]:not([fill='transparent']):not([fill='none']) {
+          fill: currentColor;
+        }
+      }
+    }
+  }
+
+  [matlistitemicon] {
+    display: flex;
+  }
+}

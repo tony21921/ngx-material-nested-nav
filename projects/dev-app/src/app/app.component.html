@@ -1,0 +1,6 @@
+<h1>Angular Material Nested Navigation List</h1>
+<mat-slide-toggle [(ngModel)]="keepSvgIconColor">Keep Svg Icon Color: {{keepSvgIconColor}}</mat-slide-toggle>
+<ngx-nested-nav-list [navData]="navData" [keepSvgIconColor]="keepSvgIconColor"></ngx-nested-nav-list>
+<div>
+    <router-outlet></router-outlet>
+</div>
