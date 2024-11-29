@@ -29,6 +29,6 @@ jobs:
         run: npm run build:lib
 
       - name: Publish to npmjs
-        run: npm publish dist/nested-nav-list
+        run: npm run publish:lib
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
