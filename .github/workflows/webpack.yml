@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [22.x]
 
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +29,6 @@ jobs:
         run: npm run build:lib
 
       - name: Publish to npmjs
-        run: npm publish
+        run: npm publish dist/nested-nav-list
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
