@@ -1,24 +1,94 @@
-# MyLib
+# NgxMaterialNestedNav
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+NgxMaterialNestedNav is an Angular Material component that supports nested navigation lists with multiple types of icons (Material, Font, SVG) and links (route, URL). The SVG icons can either use their original color or be overridden with the theme icon color.
 
-## Code scaffolding
+## NestedNavList Component
 
-Run `ng generate component component-name --project nested-nav-list` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project nested-nav-list`.
-> Note: Don't forget to add `--project nested-nav-list` or else it will be added to the default project in your `angular.json` file. 
+### Features
 
-## Build
+- Nested navigation lists with expandable/collapsible items
+- Supports different types of icons: Material, Font, SVG
+- Route and URL links
+- Divider support
 
-Run `ng build nested-nav-list` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Defining the Data
 
-## Publishing
+The data for the navigation list is defined using the `NavData` interface. Here is an example:
 
-After building your library with `ng build nested-nav-list`, go to the dist folder `cd dist/nested-nav-list` and run `npm publish`.
+```ts
+export interface NavData {
+  displayName: string;
+  iconType?: 'font' | 'svg';
+  iconName?: string;
+  fontSet?: string;
+  svgUrl?: string;
+  route?: string;
+  url?: string;
+  children?: NavData[];
+  expanded?: boolean;
+  keepQueryParams?: boolean;
+  type?: 'divider';
+}
+```
 
-## Running unit tests
+### Usage of Different Types of Icons
 
-Run `ng test nested-nav-list` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can use Material, Font, and SVG icons in the navigation list. Here is an example of how to define the data with different types of icons:
 
-## Further help
+```ts
+navData: NavData[] = [
+  {
+    displayName: 'Home',
+    iconType: 'font',
+    iconName: 'fa-house',
+    fontSet: 'fa',
+    route: 'home',
+  },
+  {
+    displayName: 'Settings',
+    iconName: 'settings',
+    children: [
+      {
+        displayName: 'Profile',
+        iconName: 'person',
+        route: 'profile',
+      },
+      {
+        displayName: 'Notifications',
+        iconName: 'notifications',
+        keepQueryParams: true,
+        route: 'notifications',
+      },
+    ],
+  },
+  {
+    type: 'divider',
+  },
+  {
+    displayName: 'Repo',
+    iconType: 'svg',
+    svgUrl: 'github.svg',
+  },
+];
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### How to Register Font for Material Icon
+
+To register a font for Material Icon, you can use the `MatIconRegistry` service. Here is an example:
+
+```ts
+import { MatIconRegistry } from '@angular/material/icon';
+
+const matIconRegistry = TestBed.inject(MatIconRegistry);
+matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+```
+
+### Divider
+
+You can add a divider in the navigation list by setting the `type` property to `divider` in the `NavData` object. Here is an example:
+
+```ts
+{
+  type: 'divider',
+}
+```
