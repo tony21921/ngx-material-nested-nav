@@ -1,20 +1,19 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "ES2022",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
     "types": []
   },
-  "angularCompilerOptions": {
-    "annotateForClosureCompiler": true,
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  },
-  "include": ["src/lib/**/*.ts", "src/lib/nav-data.d.ts"],
-  "exclude": ["**/*.spec.ts"]
+  "include": ["src/lib/**/*.ts"],
+  "exclude": [
+    "node_modules",
+    "**/cypress/**/*",
+    "**/cypress.config.ts",
+    "**/*.spec.ts"
+  ]
 }

@@ -1,15 +1,28 @@
+<!-- markdownlint-disable-next-line -->
+<p align="center">
+  <a href="https://github.com/tony21921/ngx-material-nested-nav" rel="noopener" target="_blank"><img width="150" height="150" src="./projects/nested-nav-list/logo.svg" alt="Material Nested Navigation List logo"></a>
+</p>
+
 # NgxMaterialNestedNav
 
 NgxMaterialNestedNav is an Angular Material component that supports nested navigation lists with multiple types of icons (Material, Font, SVG) and links (route, URL). The SVG icons can either use their original color or be overridden with the theme icon color.
 
-## NestedNavList Component
-
-### Features
+## Features
 
 - Nested navigation lists with expandable/collapsible items
 - Supports different types of icons: Material, Font, SVG
 - Route and URL links
 - Divider support
+
+## Installation
+
+To install the package, run:
+
+```sh
+npm install @tony21921/ngx-nested-nav-list
+```
+
+## NestedNavList Component
 
 ### Defining the Data
 
@@ -68,19 +81,25 @@ navData: NavData[] = [
     displayName: 'Repo',
     iconType: 'svg',
     svgUrl: 'github.svg',
+    url: 'https://github.com'
   },
 ];
 ```
 
 ### How to Register Font for Material Icon
 
-To register a font for Material Icon, you can use the `MatIconRegistry` service. Here is an example:
+To register a font for Material Icon, you can use the `MatIconRegistry` service as introduced in [Material](https://material.angular.io/components/icon/overview#registering-icons) documentation. Here is an example:
 
 ```ts
 import { MatIconRegistry } from '@angular/material/icon';
 
-const matIconRegistry = TestBed.inject(MatIconRegistry);
-matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+...
+export class AppComponent {
+  constructor(matIconRegistry: MatIconRegistry) {
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+  }
+  ...
+}
 ```
 
 ### Divider
@@ -90,6 +109,45 @@ You can add a divider in the navigation list by setting the `type` property to `
 ```ts
 {
   type: 'divider',
+}
+```
+
+## Usage
+
+To use the `NestedNavListComponent`, you need to import it in your Angular module or standalone component. Here is an example:
+
+### In a Module
+
+```ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { NestedNavListComponent } from '@tony21921/ngx-nested-nav-list';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, NestedNavListComponent],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+### In a Standalone Component
+
+```ts
+import { Component } from '@angular/core';
+import { NestedNavListComponent } from '@tony21921/ngx-nested-nav-list';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [NestedNavListComponent],
+  template: ` <ngx-nested-nav-list [navData]="navData"></ngx-nested-nav-list> `,
+})
+export class AppComponent {
+  navData = [
+    // your nav data here
+  ];
 }
 ```
 
@@ -107,4 +165,12 @@ Run `npm run test` to execute the unit tests via [Jest](https://jestjs.io/).
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `ng e2e` to execute the end-to-end tests with [Cypress](https://www.cypress.io/) on the dev-app application.
+
+## Contribution
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/tony21921/ngx-material-nested-nav/blob/main/LICENSE) file for more details.

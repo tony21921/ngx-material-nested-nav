@@ -1,12 +1,12 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    'baseUrl': 'http://localhost:4200',
-    'specPattern': 'projects/dev-app/cypress/e2e/**/*.cy.ts',
+    baseUrl: 'http://localhost:4200',
+    specPattern: 'cypress/e2e/**/*.cy.ts',
   },
 
   component: {
@@ -14,6 +14,7 @@ export default defineConfig({
       framework: 'angular',
       bundler: 'webpack',
     },
-    'specPattern': 'projects/nested-nav-list/cypress/component/**/*.cy.ts',
+    specPattern: 'projects/nested-nav-list/src/lib/**/*.cy.ts',
+    supportFile: 'cypress/support/component.ts',
   },
 });
