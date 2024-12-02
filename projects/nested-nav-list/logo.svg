@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- expanded icon (transparent area) -->
+    <polygon id="polygon-icon" points="79,15 87,8 95,15 91,18 87,14 83,18" fill="white" />
+    <mask id="list-mask">
+      <!-- White rectangle (visible area) -->
+      <rect x="0" y="0" width="200" height="200" fill="white" />
+      
+      <!-- List bars -->
+      <rect x="35" y="35" width="25" height="25" fill="black" />
+      <rect x="65" y="35" width="100" height="25" fill="black" />
+      <use href="#polygon-icon" x="60" y="35" />
+
+      <rect x="65" y="65" width="25" height="25" fill="black" />
+      <rect x="95" y="65" width="70" height="25" fill="black" />
+      <use href="#polygon-icon" x="60" y="65" />
+
+      <rect x="95" y="95" width="25" height="25" fill="black" />
+      <rect x="125" y="95" width="40" height="25" fill="black" />
+
+      <rect x="35" y="125" width="25" height="25" fill="black" />
+      <rect x="65" y="125" width="100" height="25" fill="black" />
+    </mask>
+  </defs>
+
+  <!-- Background Angular shield shape -->
+  <path d="M100 0 L10 42 L16 149 L100 200 L184 149 L190 42 Z" fill="#005cbb" mask="url(#list-mask)" />
+</svg>

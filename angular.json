@@ -31,52 +31,19 @@
             "configPath": "jest.config.ts"
           }
         },
-        "cypress-run": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "nested-nav-list:serve",
-            "configFile": "projects/nested-nav-list/cypress.config.js"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "nested-nav-list:serve:production"
-            }
-          }
-        },
-        "cypress-open": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "watch": true,
-            "headless": false,
-            "configFile": "projects/nested-nav-list/cypress.config.js"
-          }
-        },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "nested-nav-list:serve",
+            "devServerTarget": "dev-app:serve",
             "watch": true,
             "headless": false,
             "testingType": "component",
-            "specPattern": "projects/nested-nav-list/src/**/*.cy.ts"
+            "configFile": "cypress.config.ts",
+            "tsConfig": "tsconfig.cy.json"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "nested-nav-list:serve:development"
-            }
-          }
-        },
-        "e2e": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "nested-nav-list:serve",
-            "watch": true,
-            "headless": false,
-            "specPattern": "projects/dev-app/cypress/e2e/**/*.cy.ts"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "nested-nav-list:serve:production"
+              "devServerTarget": "dev-app:serve:development"
             }
           }
         }
@@ -99,9 +66,7 @@
             "outputPath": "dist/dev-app",
             "index": "projects/dev-app/src/index.html",
             "browser": "projects/dev-app/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/dev-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -111,13 +76,9 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "node_modules"
-              ]
+              "includePaths": ["node_modules"]
             },
-            "styles": [
-              "projects/dev-app/src/styles.scss"
-            ],
+            "styles": ["projects/dev-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -170,9 +131,7 @@
                 "input": "projects/dev-app/public"
               }
             ],
-            "styles": [
-              "projects/dev-app/src/styles.scss"
-            ],
+            "styles": ["projects/dev-app/src/styles.scss"],
             "scripts": []
           }
         },
@@ -180,7 +139,7 @@
           "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "dev-app:serve",
-            "configFile": "projects/dev-app/cypress.config.js"
+            "configFile": "cypress.config.ts"
           },
           "configurations": {
             "production": {
@@ -193,22 +152,7 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/dev-app/cypress.config.js"
-          }
-        },
-        "ct": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "dev-app:serve",
-            "watch": true,
-            "headless": false,
-            "testingType": "component",
-            "specPattern": "projects/nested-nav-list/src/components/**/*.cy.ts"
-          },
-          "configurations": {
-            "development": {
-              "devServerTarget": "dev-app:serve:development"
-            }
+            "configFile": "cypress.config.ts"
           }
         },
         "e2e": {
@@ -217,7 +161,8 @@
             "devServerTarget": "dev-app:serve",
             "watch": true,
             "headless": false,
-            "specPattern": "projects/dev-app/cypress/e2e/**/*.cy.ts"
+            "specPattern": "cypress/e2e/**/*.cy.ts",
+            "configFile": "cypress.config.ts"
           },
           "configurations": {
             "production": {
@@ -228,16 +173,16 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/dev-app/**/*.ts", "projects/dev-app/**/*.html"]
+            "lintFilePatterns": [
+              "projects/dev-app/**/*.ts",
+              "projects/dev-app/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@cypress/schematic",
-      "@schematics/angular"
-    ]
+    "schematicCollections": ["@cypress/schematic", "@schematics/angular"]
   }
 }

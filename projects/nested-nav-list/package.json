@@ -1,6 +1,6 @@
 {
   "name": "@tony21921/ngx-nested-nav-list",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publishConfig": {
     "access": "public"
   },
@@ -11,10 +11,12 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false,
   "description": "NgxMaterialNestedNav is an Angular Material component that supports nested navigation lists with multiple types of icons (Material, Font, SVG) and links (route, URL).",
   "main": "index.js",
   "keywords": [
+    "@tony21921/ngx-nested-nav-list",
+    "ngx-nested-nav-list",
+    "ngx",
     "angular",
     "material",
     "nested",
@@ -30,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/tony21921/ngx-material-nested-nav/issues"
   },
-  "homepage": "https://github.com/tony21921/ngx-material-nested-nav"
+  "homepage": "https://github.com/tony21921/ngx-material-nested-nav",
+  "sideEffects": false
 }
