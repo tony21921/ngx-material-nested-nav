@@ -73,6 +73,11 @@
               {
                 "glob": "**/*",
                 "input": "projects/dev-app/public"
+              },
+              {
+                "glob": "logo.svg",
+                "input": "projects/nested-nav-list",
+                "output": "."
               }
             ],
             "stylePreprocessorOptions": {
