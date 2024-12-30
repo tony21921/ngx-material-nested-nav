@@ -1,6 +1,6 @@
 {
   "name": "@tony21921/ngx-nested-nav-list",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publishConfig": {
     "access": "public"
   },
