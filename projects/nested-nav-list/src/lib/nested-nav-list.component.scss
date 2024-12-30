@@ -19,4 +19,9 @@
   [matlistitemicon] {
     display: flex;
   }
+
+  mat-list-item.active {
+    background-color: var(--mat-selected-item-background, rgba(0, 0, 0, 0.08));
+    color: var(--mat-selected-item-color, rgba(0, 0, 0, 0.87));
+  }
 }

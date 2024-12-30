@@ -29,6 +29,8 @@ export class NestedNavListComponent implements OnChanges {
   @Input() navData: NavData[] = [];
   @Input() nestedIndent: number = 16;
   @Input() keepSvgIconColor: boolean = false;
+  @Input() highlightActiveItem: boolean = false;
+  @Input() isActiveItem: (item: NavData) => boolean = this.defaultIsActiveItem;
 
   transformedNavData: NavData[] = [];
 
@@ -87,5 +89,10 @@ export class NestedNavListComponent implements OnChanges {
     if (item.children) {
       item.expanded = !item.expanded;
     }
+  }
+
+  defaultIsActiveItem(item: NavData): boolean {
+    const currentUrl = this.router.url.split('?')[0]; // Exclude query parameters
+    return item.route !== undefined && currentUrl.endsWith(item.route || '');
   }
 }
